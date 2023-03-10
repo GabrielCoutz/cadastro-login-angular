@@ -1,0 +1,26 @@
+.projects {
+  margin: 5rem auto;
+
+  .header{
+    text-align: center;
+  }
+
+  .card {
+    gap: 1rem;
+    height: 100%;
+
+    .card-header {
+      justify-content: space-between;
+    }
+
+    .tecnologies{
+        span + span::before {
+          content: "|";
+        }
+    }
+
+    .description{
+      flex: 1;
+    }
+  }
+}

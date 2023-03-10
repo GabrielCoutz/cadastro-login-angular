@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { KnowledgeComponent } from './components/knowledge/knowledge.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import { HeaderComponent } from './shared/header/header.component';
 		HeaderComponent,
 		IntroComponent,
 		KnowledgeComponent,
+  ProjectsComponent,
 	],
 	imports: [
 		BrowserModule,
