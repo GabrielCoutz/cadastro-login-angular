@@ -20,6 +20,14 @@
     "import"
   ],
   "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
     "prettier/prettier": [
       "error",
       {
@@ -31,10 +39,7 @@
     ],
     "indent": [
       "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
+      "tab"
     ],
     "linebreak-style": [
       "error",
