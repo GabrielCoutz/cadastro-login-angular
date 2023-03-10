@@ -1,4 +1,15 @@
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  color: var(--black);
+  font: 400 3rem/1 var(--primary-font) !important;
+}
+
+.sub-title {
+  color: var(--primary-color);
+  font: 300 1.8rem/1 var(--primary-font) !important;
 }

@@ -11,11 +11,9 @@
 
   h2 {
     margin-bottom: 0;
-    color: var(--primary-color);
-    font: 200 1.8rem/1 var(--primary-font);
   }
 
-  button {
+  .cta-scroll-down {
     margin-top: 1rem;
     animation: scroll-down-animation 1.3s alternate-reverse infinite;
   }
