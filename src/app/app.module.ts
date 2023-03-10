@@ -11,9 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { IntroComponent } from './components/intro/intro.component';
 
 @NgModule({
-	declarations: [AppComponent, HeaderComponent],
+	declarations: [AppComponent, HeaderComponent, IntroComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

@@ -1,0 +1,43 @@
+@use "../../../styles/mixins.scss" as m;
+
+.intro {
+  text-align: center;
+  margin: 10rem 0;
+
+  h1 {
+    font: 600 3.4rem/1 var(--primary-font);
+    margin: 1rem 0 2rem 0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+    color: var(--primary-color);
+    font: 200 1.8rem/1 var(--primary-font);
+  }
+
+  button {
+    margin-top: 1rem;
+    animation: scroll-down-animation 1.3s alternate-reverse infinite;
+  }
+
+  @include m.device(small) {
+    margin: 5rem 0;
+
+    h1 {
+      font-size: 2.6rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@keyframes scroll-down-animation {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
