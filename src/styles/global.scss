@@ -13,3 +13,16 @@
   color: var(--primary-color);
   font: 300 1.8rem/1 var(--primary-font) !important;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}

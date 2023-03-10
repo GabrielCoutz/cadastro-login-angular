@@ -2,7 +2,13 @@
 
 .intro {
   text-align: center;
-  margin: 10rem 0;
+  height:90vh;
+  min-height:90%;
+  max-height:90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   h1 {
     font: 600 3.4rem/1 var(--primary-font);
@@ -19,7 +25,6 @@
   }
 
   @include m.device(small) {
-    margin: 5rem 0;
 
     h1 {
       font-size: 2.6rem;

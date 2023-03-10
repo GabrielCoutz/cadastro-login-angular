@@ -15,8 +15,6 @@ interface ProjectsModel {
 	styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-	layoutGap = '24px grid';
-
 	projects: ProjectsModel[] = [
 		{
 			title: 'API em Node.js V2. Com Clean Architecture',
