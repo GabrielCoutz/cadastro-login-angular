@@ -1,4 +1,4 @@
-@use "../../../styles/mixins.scss" as m;
+@use "../../../../../styles/mixins.scss" as m;
 
 .intro {
   text-align: center;
@@ -17,6 +17,8 @@
 
   h2 {
     margin-bottom: 0;
+    color: var(--primary-color);
+    font: 300 2rem/1 var(--primary-font);
   }
 
   .cta-scroll-down {
