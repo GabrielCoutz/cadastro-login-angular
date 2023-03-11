@@ -7,6 +7,10 @@ interface ProjectsModel {
 	description: string;
 	githubLink: string;
 	externalLink?: string;
+	badge?: boolean;
+	badgeContent?: string;
+	readyToTest?: boolean;
+	testLink?: string;
 }
 
 @Component({
@@ -29,6 +33,8 @@ export class ProjectsComponent {
 			description:
 				'Com o começo nos estudos da Clean Architecture, foi decidido a refatoração do projeto anterior. Aplicando os conhecimentos deste modelo de arquitetura e outros, como Either no Typescript e TDD.',
 			githubLink: 'https://github.com/GabrielCoutz/clean-architecture-pratica',
+			badge: true,
+			badgeContent: '🔥',
 		},
 		{
 			title: 'API em Node.js',
@@ -43,6 +49,8 @@ export class ProjectsComponent {
 			description:
 				'Possui todas operações CRUD nos dados do usuário, com autenticação por meio do JWT. Seu desenvolvimento teve como propósito, conhecer o Node.js, testes com Vitest e obter mais domínio do Typescript. Após seu término, fiz a hospedagem desta API na Vercel, e montei uma documentação de como utilizá-la, disponível no GitHub do projeto.',
 			githubLink: 'https://github.com/GabrielCoutz/node-api',
+			readyToTest: true,
+			testLink: '/node-api',
 		},
 		{
 			title: 'Sistema FULLSTACK de login',

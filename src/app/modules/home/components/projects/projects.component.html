@@ -4,8 +4,10 @@
     <h1 class="title">Projetos</h1>
   </div>
   <ul fxLayout="row wrap stretch" fxLayoutAlign="stretch" class="cards-list">
+
     <li fxFlex="50%" fxFlex.xs="100%" *ngFor="let project of projects">
-      <mat-card class="card">
+      <mat-card class="card" [matBadge]="project.badgeContent" matBadgePosition="after"
+        [matBadgeHidden]="!project.badge">
         <mat-card-header class="card-header">
           <mat-card-title>
             {{project.title}}
@@ -48,6 +50,8 @@
                 stroke-linejoin="round" />
             </svg>
           </a>
+          <a [routerLink]="[project.testLink]" mat-flat-button color="primary" *ngIf="project.readyToTest">Teste
+            agora!</a>
 
         </mat-card-actions>
       </mat-card>
