@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
+import { ProjectsModule } from './modules/projects/projects.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 
@@ -22,18 +23,20 @@ import { HeaderComponent } from './shared/header/header.component';
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		HttpClientModule,
+
 		BrowserAnimationsModule,
 		MatButtonModule,
 		FlexLayoutModule,
 		LayoutModule,
 		MatIconModule,
 		MatTooltipModule,
-
 		MatSidenavModule,
 		MatCardModule,
 		MatTabsModule,
-		HttpClientModule,
+
 		HomeModule,
+		ProjectsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
