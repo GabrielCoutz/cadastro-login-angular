@@ -8,7 +8,7 @@ interface UserRegisterInput {
 	password: string;
 }
 
-interface UserRegisterOutput {
+interface UserApiOutput {
 	id: string;
 	name: string;
 	email: string;
@@ -21,7 +21,15 @@ export class ApiServiceService {
 	constructor(private readonly request: HttpClient) {}
 	private readonly apiUrl = 'https://node-api-git-main-gabrielcoutz.vercel.app';
 
-	registerUser(user: UserRegisterInput): Observable<UserRegisterOutput> {
-		return this.request.post<UserRegisterOutput>(`${this.apiUrl}/user`, user);
+	getUsers(): Observable<UserApiOutput[]> {
+		return this.request.get<UserApiOutput[]>(`${this.apiUrl}/users`);
+	}
+
+	getUser(userId: string): Observable<UserApiOutput> {
+		return this.request.get<UserApiOutput>(`${this.apiUrl}/user/${userId}`);
+	}
+
+	registerUser(user: UserRegisterInput): Observable<UserApiOutput> {
+		return this.request.post<UserApiOutput>(`${this.apiUrl}/user`, user);
 	}
 }
