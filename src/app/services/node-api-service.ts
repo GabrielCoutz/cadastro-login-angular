@@ -17,7 +17,7 @@ interface UserApiOutput {
 @Injectable({
 	providedIn: 'root',
 })
-export class ApiServiceService {
+export class NodeApiService {
 	constructor(private readonly request: HttpClient) {}
 	private readonly apiUrl = 'https://node-api-git-main-gabrielcoutz.vercel.app';
 
