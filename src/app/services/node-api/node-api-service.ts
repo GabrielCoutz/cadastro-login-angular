@@ -14,16 +14,20 @@ interface UserApiOutput {
 	email: string;
 }
 
+export interface ErrorApiOutput {
+	error: {
+		message: string;
+		statusTitle: string;
+	};
+	status: number;
+}
+
 @Injectable({
 	providedIn: 'root',
 })
-export class ApiServiceService {
+export class NodeApiService {
 	constructor(private readonly request: HttpClient) {}
 	private readonly apiUrl = 'https://node-api-git-main-gabrielcoutz.vercel.app';
-
-	getUsers(): Observable<UserApiOutput[]> {
-		return this.request.get<UserApiOutput[]>(`${this.apiUrl}/users`);
-	}
 
 	getUser(userId: string): Observable<UserApiOutput> {
 		return this.request.get<UserApiOutput>(`${this.apiUrl}/user/${userId}`);

@@ -1,19 +1,9 @@
-<h1 class="formTitle">Cadastro</h1>
-
-<form [formGroup]="signinForm" (ngSubmit)="submit()" class="signinForm container" fxLayout="column" fxLayoutGap="16px">
-  <mat-form-field appearance="fill">
-    <mat-label>Nome completo</mat-label>
-    <input matInput formControlName="name" required>
-    <mat-error *ngIf="signinForm.get('name')?.errors">
-      <mat-icon>error_outline</mat-icon>
-      Insira pelo menos {{minNameLength}} caracteres
-    </mat-error>
-  </mat-form-field>
-
+<h1 class="formTitle">Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="submit()" class="loginForm container" fxLayout="column" fxLayoutGap="16px">
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput placeholder="exemplo@gmail.com" formControlName="email" required>
-    <mat-error *ngIf="signinForm.get('email')?.errors">
+    <mat-error *ngIf="loginForm.get('email')?.errors">
       <mat-icon>error_outline</mat-icon>
       Insira um email válido
     </mat-error>
@@ -26,17 +16,17 @@
       [attr.aria-pressed]="hidePassword">
       <mat-icon>{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
     </button>
-    <mat-error *ngIf="signinForm.get('password')?.value?.length < minPasswordLength" class="requiredParam" #senha>
+    <mat-error *ngIf="loginForm.get('password')?.value?.length < minPasswordLength" class="requiredParam" #senha>
       <mat-icon>error_outline</mat-icon>
       <span>Mínimo de {{minPasswordLength}} caracteres</span>
     </mat-error>
   </mat-form-field>
 
-  <div matTooltip="Preencha todos os campos!" [matTooltipDisabled]="!signinForm.invalid" matTooltipPosition="above">
+  <div matTooltip="Preencha todos os campos!" [matTooltipDisabled]="!loginForm.invalid" matTooltipPosition="above">
     <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
-    <button mat-flat-button color="primary" [disabled]="signinForm.invalid" style="width: 100%;">Cadastrar</button>
+    <button mat-flat-button color="primary" [disabled]="loginForm.invalid" style="width: 100%;">Login</button>
   </div>
   <div style="text-align: center;">Ou</div>
-  <a mat-stroked-button [routerLink]="['../login']">Faça login</a>
+  <a mat-stroked-button [routerLink]="['../signin']">Cadastre-se</a>
 
 </form>
