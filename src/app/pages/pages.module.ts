@@ -17,8 +17,9 @@ import { KnowledgeComponent } from '../components/knowledge/knowledge.component'
 import { ProjectsComponent } from '../components/projects/projects.component';
 import { LoginFormComponent } from '../projects/node-api/components/login-form/login-form.component';
 import { SigninFormComponent } from '../projects/node-api/components/signin-form/signin-form.component';
+import { NodeApiComponent } from '../projects/node-api/node-api.component';
 import { HomeComponent } from './home/home.component';
-import { CustomRoutingModule } from './routing.module';
+import { RoutingModule } from './pages-routing';
 @NgModule({
 	declarations: [
 		HomeComponent,
@@ -27,6 +28,7 @@ import { CustomRoutingModule } from './routing.module';
 		ProjectsComponent,
 		SigninFormComponent,
 		LoginFormComponent,
+		NodeApiComponent,
 	],
 	imports: [
 		MatCardModule,
@@ -41,7 +43,7 @@ import { CustomRoutingModule } from './routing.module';
 		ReactiveFormsModule,
 		CommonModule,
 		RouterModule,
-		CustomRoutingModule,
+		RoutingModule,
 	],
 })
 export class PagesModule {}
