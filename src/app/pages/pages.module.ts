@@ -17,6 +17,7 @@ import { KnowledgeComponent } from '../components/knowledge/knowledge.component'
 import { ProjectsComponent } from '../components/projects/projects.component';
 import { LoginFormComponent } from '../projects/node-api/components/login-form/login-form.component';
 import { SigninFormComponent } from '../projects/node-api/components/signin-form/signin-form.component';
+import { UserFormComponent } from '../projects/node-api/components/user-form/user-form.component';
 import { NodeApiComponent } from '../projects/node-api/node-api.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './pages-routing';
@@ -26,9 +27,10 @@ import { RoutingModule } from './pages-routing';
 		IntroComponent,
 		KnowledgeComponent,
 		ProjectsComponent,
-		SigninFormComponent,
-		LoginFormComponent,
 		NodeApiComponent,
+		SigninFormComponent,
+		UserFormComponent,
+		LoginFormComponent,
 	],
 	imports: [
 		MatCardModule,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/node-api/auth.service';
 import { ErrorApiOutput } from 'src/app/services/node-api/node-api-service';
 
@@ -12,6 +13,7 @@ export class LoginFormComponent {
 	constructor(
 		private readonly formBuilder: FormBuilder,
 		private readonly authService: AuthService,
+		private readonly router: Router,
 	) {}
 
 	minPasswordLength = 5;
@@ -30,7 +32,14 @@ export class LoginFormComponent {
 		this.error = '';
 
 		this.authService.loginUser(this.loginForm.value).subscribe({
-			next: (response) => console.log(response),
+			next: (response) => {
+				console.log(response);
+
+				localStorage.setItem('token', response.token);
+				localStorage.setItem('userId', response.id);
+
+				this.router.navigate(['projects/node-api/account']);
+			},
 			error: (err: ErrorApiOutput) => {
 				console.log(err);
 
