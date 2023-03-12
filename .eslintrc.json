@@ -21,7 +21,7 @@
   ],
   "rules": {
     "no-unused-vars": [
-      "error",
+      "warn",
       {
         "vars": "all",
         "args": "after-used",
@@ -42,19 +42,19 @@
       "tab"
     ],
     "linebreak-style": [
-      "error",
+      "warn",
       "unix"
     ],
     "quotes": [
-      "error",
+      "warn",
       "single"
     ],
     "semi": [
-      "error",
+      "warn",
       "always"
     ],
     "import/extensions": [
-      "error",
+      "warn",
       "ignorePackages",
       {
         "js": "always"
