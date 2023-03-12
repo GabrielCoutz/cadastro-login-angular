@@ -1,3 +1,8 @@
+.formTitle {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 .signinForm {
   flex-direction: column;
   box-sizing: border-box;
@@ -15,13 +20,12 @@
     gap: 0.1rem;
   }
 
-  .infoButton, .loginLink{
+  .infoButton {
     text-align: center;
   }
 
-
-  .loginLink{
-    display: block;
-    padding: 1rem;
+  .errorMessage {
+    text-align: center;
+    margin: 0.5rem;
   }
 }

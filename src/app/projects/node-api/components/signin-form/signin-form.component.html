@@ -1,3 +1,5 @@
+<h1 class="formTitle">Cadastro</h1>
+
 <form [formGroup]="signinForm" (ngSubmit)="submit()" class="signinForm container" fxLayout="column" fxLayoutGap="16px">
   <mat-form-field appearance="fill">
     <mat-label>Nome completo</mat-label>
@@ -31,9 +33,10 @@
   </mat-form-field>
 
   <div matTooltip="Preencha todos os campos!" [matTooltipDisabled]="!signinForm.invalid" matTooltipPosition="above">
+    <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
     <button mat-flat-button color="primary" [disabled]="signinForm.invalid" style="width: 100%;">Cadastrar</button>
   </div>
   <div style="text-align: center;">Ou</div>
-  <a mat-stroked-button [routerLink]="['login']">Faça login</a>
+  <a mat-stroked-button [routerLink]="['../login']">Faça login</a>
 
 </form>
