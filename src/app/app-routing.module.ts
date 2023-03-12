@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './modules/home/pages/home/home.component';
-import { NodeApiComponent } from './modules/projects/pages/node-api/node-api.component';
-
 const routes: Routes = [
 	{
 		path: '',
-		component: HomeComponent,
+		loadChildren: async () =>
+			(await import('./pages/pages.module')).PagesModule,
+		pathMatch: 'full',
 	},
 	{
-		path: 'project',
-		children: [
-			{
-				path: 'node-api',
-				component: NodeApiComponent,
-			},
-		],
+		path: 'projects',
+		loadChildren: async () =>
+			(await import('./projects/projects.module')).ProjectsModule,
 	},
 ];
 
