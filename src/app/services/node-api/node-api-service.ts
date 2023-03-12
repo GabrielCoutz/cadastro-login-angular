@@ -36,4 +36,18 @@ export class NodeApiService {
 	registerUser(user: UserRegisterInput): Observable<UserApiOutput> {
 		return this.request.post<UserApiOutput>(`${this.apiUrl}/user`, user);
 	}
+
+	updateUser(userId: string, user: any): Observable<UserApiOutput> {
+		const token = localStorage.getItem('token');
+
+		return this.request.patch<UserApiOutput>(
+			`${this.apiUrl}/user/${userId}`,
+			user,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+	}
 }

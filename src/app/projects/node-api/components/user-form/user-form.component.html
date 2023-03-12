@@ -1,0 +1,40 @@
+<h1 class="formTitle">Minha conta</h1>
+<form [formGroup]="userForm" (ngSubmit)="submit()" class="userForm container" fxLayout="column" fxLayoutGap="16px">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name" required>
+    <mat-error *ngIf="userForm.get('name')?.errors">
+      <mat-icon>error_outline</mat-icon>
+      O campo não pode ficar vazio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="exemplo@gmail.com" formControlName="email" required>
+    <mat-error *ngIf="userForm.get('email')?.errors">
+      <mat-icon>error_outline</mat-icon>
+      Verifique este campo
+    </mat-error>
+  </mat-form-field>
+
+  <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
+  <span class="message" *ngIf="message">{{message}}</span>
+  <button mat-flat-button color="primary">Atualizar dados</button>
+
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text' " formControlName="password" required>
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hidePassword">
+      <mat-icon>{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="userForm.get('password')?.value?.length < minPasswordLength" class="requiredParam" #senha>
+      <mat-icon>error_outline</mat-icon>
+      <span>Mínimo de {{minPasswordLength}} caracteres</span>
+    </mat-error>
+  </mat-form-field> -->
+
+
+</form>

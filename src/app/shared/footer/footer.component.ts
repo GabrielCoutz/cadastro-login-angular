@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
 	InfoFooterModel,
 	InfoFooterService,
-} from 'src/app/services/info-footer.service';
+} from 'src/app/services/info-footer/info-footer.service';
 
 @Component({
 	selector: 'app-footer',

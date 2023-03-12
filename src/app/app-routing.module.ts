@@ -8,11 +8,6 @@ const routes: Routes = [
 			(await import('./pages/pages.module')).PagesModule,
 		pathMatch: 'full',
 	},
-	{
-		path: 'projects',
-		loadChildren: async () =>
-			(await import('./projects/projects.module')).ProjectsModule,
-	},
 ];
 
 @NgModule({
