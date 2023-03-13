@@ -48,4 +48,12 @@ describe('AuthService', () => {
 
 		expect(req.request.method).toEqual('POST');
 	});
+
+	it('should trigger a target to modalService when form submit', () => {
+		spyOn(service, 'logout');
+
+		service.logout();
+
+		expect(service.logout).toHaveBeenCalledWith();
+	});
 });
