@@ -13,14 +13,16 @@ describe('InfoFooterService', () => {
 	let httClient: HttpClient;
 
 	const mockResponse: InfoFooterModel = {
-		subject_matter: 'Desafio Frontend',
-		comment: 'Conteúdo do e-mail',
+		subject_matter: 'mock teste',
+		comment: 'mock teste',
 		contact: {
-			name: 'Enacom',
-			tel: '(31) 3879-5667',
-			email: 'enacom@enacom.com.br',
+			name: 'mock teste',
+			tel: 'mock teste',
+			email: 'mock teste',
 		},
 	};
+	const apiUrl =
+		'https://63a59f6af8f3f6d4abfb383d.mockapi.io/api-portfolio/sendEmail';
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({
@@ -37,5 +39,26 @@ describe('InfoFooterService', () => {
 
 	it('should be created', () => {
 		expect(service).toBeTruthy();
+	});
+
+	it('should return all fields', (done) => {
+		service.fetchFooterData().subscribe({
+			next: (response) => {
+				expect(response.subject_matter).toEqual('mock teste');
+				expect(response.comment).toEqual('mock teste');
+				expect(response.contact.email).toEqual('mock teste');
+				expect(response.contact.name).toEqual('mock teste');
+				expect(response.contact.tel).toEqual('mock teste');
+				done();
+			},
+			error: (err) => {
+				expect(err).toBeFalsy();
+				done();
+			},
+		});
+		const req = httpTestingController.expectOne(apiUrl);
+		req.flush(mockResponse);
+
+		expect(req.request.method).toEqual('GET');
 	});
 });
