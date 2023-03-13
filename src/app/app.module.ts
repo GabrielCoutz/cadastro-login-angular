@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +38,9 @@ import { HeaderComponent } from './shared/header/header.component';
 		RouterModule,
 		FlexLayoutModule,
 		MatProgressSpinnerModule,
+		MatIconModule,
+		MatButtonModule,
+		MatDialogModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

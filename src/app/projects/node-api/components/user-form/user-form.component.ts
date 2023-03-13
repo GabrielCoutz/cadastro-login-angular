@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { AuthService } from 'src/app/services/node-api/auth.service';
 import { NodeApiService } from 'src/app/services/node-api/node-api-service';
 
 @Component({
@@ -15,6 +16,8 @@ export class UserFormComponent {
 		private readonly apiService: NodeApiService,
 		private readonly modalService: ModalService,
 		private readonly route: ActivatedRoute,
+		private readonly authService: AuthService,
+		private readonly router: Router,
 	) {}
 
 	error = '';
@@ -34,7 +37,6 @@ export class UserFormComponent {
 					name,
 				});
 			},
-			error: (err) => console.log(err),
 		});
 	}
 
@@ -59,5 +61,10 @@ export class UserFormComponent {
 				console.log(err);
 			},
 		});
+	}
+
+	logOut() {
+		this.authService.logout();
+		this.router.navigate(['projects/node-api/login']);
 	}
 }

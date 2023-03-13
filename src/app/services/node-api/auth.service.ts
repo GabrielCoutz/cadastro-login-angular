@@ -26,4 +26,8 @@ export class AuthService {
 			payload,
 		);
 	}
+
+	logout(): void {
+		localStorage.removeItem('token');
+	}
 }

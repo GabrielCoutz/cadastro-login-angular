@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { ComponentType } from '@angular/cdk/portal';
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/services/modal/modal.service';
 
@@ -26,7 +26,9 @@ export class ModalComponent {
 			.subscribe((target) => {
 				switch (target) {
 					case 'loading':
-						this.openModal(LoadingComponent);
+						this.openModal(LoadingComponent, {
+							disableClose: true,
+						});
 						break;
 
 					case 'createdAccount':
@@ -46,11 +48,15 @@ export class ModalComponent {
 		this.modalSubscription?.unsubscribe();
 	}
 
-	private openModal(component: ComponentType<unknown>) {
+	private openModal(
+		component: ComponentType<unknown>,
+		config?: MatDialogConfig,
+	) {
 		this.dialog.open(component, {
-			width: '250px',
+			width: '500px',
 			enterAnimationDuration: this.enterAnimationDuration,
 			exitAnimationDuration: this.exitAnimationDuration,
+			...config,
 		});
 	}
 }
