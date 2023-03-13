@@ -5,17 +5,17 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { ErrorApiOutput, NodeApiService } from './node-api-service';
 import {
 	userRegisterResponse,
 	userToRegister,
 	userUpdated,
-} from './node-api.mocks';
+} from '../node-api.mocks';
+import { ErrorApiOutput, NodeApiService } from './node-api-service';
 
 describe('ApiServiceService', () => {
 	let service: NodeApiService;
 	let httpTestingController: HttpTestingController;
-	let httClient: HttpClient;
+	let httpClient: HttpClient;
 	const apiUrl = 'https://node-api-git-main-gabrielcoutz.vercel.app';
 
 	beforeEach(() => {
@@ -23,7 +23,7 @@ describe('ApiServiceService', () => {
 			imports: [HttpClientTestingModule],
 		});
 
-		httClient = TestBed.inject(HttpClient);
+		httpClient = TestBed.inject(HttpClient);
 		httpTestingController = TestBed.inject(HttpTestingController);
 		service = TestBed.inject(NodeApiService);
 	});

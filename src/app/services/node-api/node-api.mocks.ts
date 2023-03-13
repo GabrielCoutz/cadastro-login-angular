@@ -1,4 +1,4 @@
-import { UserApiOutput, UserRegisterInput } from './node-api-service';
+import { UserApiOutput, UserRegisterInput } from './user/node-api-service';
 
 export const userToRegister: UserRegisterInput = {
 	email: 'teste@wxample.com',
