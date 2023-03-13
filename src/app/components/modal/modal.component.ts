@@ -3,7 +3,7 @@ import { ComponentType } from '@angular/cdk/portal';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { ModalService } from 'src/app/services/modal.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 import { CreatedAccountComponent } from './created-account/created-account.component';
 import { LoadingComponent } from './loading/loading.component';

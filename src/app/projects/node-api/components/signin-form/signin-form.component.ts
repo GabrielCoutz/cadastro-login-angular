@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from 'src/app/services/modal.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import {
 	NodeApiService,
 	ErrorApiOutput,

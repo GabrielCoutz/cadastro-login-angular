@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from 'src/app/services/modal.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { AuthService } from 'src/app/services/node-api/auth.service';
 import { ErrorApiOutput } from 'src/app/services/node-api/node-api-service';
 
@@ -39,9 +39,8 @@ export class LoginFormComponent {
 				this.modalService.modalTarget.next('close');
 
 				localStorage.setItem('token', response.token);
-				localStorage.setItem('userId', response.id);
 
-				this.router.navigate(['projects/node-api/account']);
+				this.router.navigate(['projects/node-api/account', response.id]);
 			},
 			error: (err: ErrorApiOutput) => {
 				this.modalService.modalTarget.next('close');
