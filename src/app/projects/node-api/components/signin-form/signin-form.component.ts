@@ -25,7 +25,7 @@ export class SigninFormComponent {
 	minPasswordLength = 5;
 	minNameLength = 5;
 	hidePassword = true;
-	error = 'email já utilizado';
+	error = '';
 
 	@Output() modalEvent = new EventEmitter();
 

@@ -37,14 +37,11 @@ export class LoginFormComponent {
 		this.authService.loginUser(this.loginForm.value).subscribe({
 			next: (response) => {
 				this.modalService.modalTarget.next('close');
-
 				localStorage.setItem('token', response.token);
-
 				this.router.navigate(['projects/node-api/account', response.id]);
 			},
 			error: (err: ErrorApiOutput) => {
 				this.modalService.modalTarget.next('close');
-
 				this.error = err.error.message;
 			},
 		});

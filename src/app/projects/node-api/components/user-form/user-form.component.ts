@@ -3,7 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { AuthService } from 'src/app/services/node-api/auth.service';
-import { NodeApiService } from 'src/app/services/node-api/node-api-service';
+import {
+	ErrorApiOutput,
+	NodeApiService,
+} from 'src/app/services/node-api/node-api-service';
 
 @Component({
 	selector: 'app-user-form',
@@ -30,8 +33,10 @@ export class UserFormComponent {
 	});
 
 	ngOnInit(): void {
+		this.modalService.modalTarget.next('loading');
 		this.apiService.getUser(this.userId).subscribe({
 			next: ({ name, email }) => {
+				this.modalService.modalTarget.next('close');
 				this.userForm.patchValue({
 					email,
 					name,
@@ -55,10 +60,9 @@ export class UserFormComponent {
 				});
 				this.message = 'Dados atualizados com sucesso';
 			},
-			error: (err) => {
+			error: (err: ErrorApiOutput) => {
 				this.modalService.modalTarget.next('close');
-
-				console.log(err);
+				this.error = err.error.message;
 			},
 		});
 	}
