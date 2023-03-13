@@ -7,22 +7,22 @@
     <div>
       <h2>Contato</h2>
       <ul>
-        <li *ngIf="info; else emailPadrao">
-          <a [href]="'mailto:' + info.contact.email + '?subject=' + info.subject_matter + ' &body=' + info.comment">
+        <li *ngIf="info; else defaultEmail">
+          <a [href]="'mailto:' + info.contact.email + '?subject=' + info.subject_matter + ' &body=' + info.comment" class="email">
             {{info.contact.email}}
           </a>
         </li>
-        <ng-template #emailPadrao>
+        <ng-template #defaultEmail>
           <li>
             <span>qualquerEmail@email.com</span>
           </li>
         </ng-template>
-        <li *ngIf="info; else telPadrao">
-          <span>
+        <li *ngIf="info; else defaultTel">
+          <span class="tel">
             {{info.contact.tel}}
           </span>
         </li>
-        <ng-template #telPadrao>
+        <ng-template #defaultTel>
           <li>
             <span>(00) 00000-0000</span>
           </li>

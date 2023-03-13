@@ -5,22 +5,13 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { InfoFooterModel, infoFooterService } from './info-footer.service';
+import { infoFooterService } from './info-footer.service';
+import { infoServiceResponse } from './info-service.mocks';
 
 describe('InfoFooterService', () => {
 	let service: infoFooterService;
 	let httpTestingController: HttpTestingController;
 	let httpClient: HttpClient;
-
-	const mockResponse: InfoFooterModel = {
-		subject_matter: 'mock teste',
-		comment: 'mock teste',
-		contact: {
-			name: 'mock teste',
-			tel: 'mock teste',
-			email: 'mock teste',
-		},
-	};
 	const apiUrl =
 		'https://63a59f6af8f3f6d4abfb383d.mockapi.io/api-portfolio/sendEmail';
 
@@ -57,7 +48,7 @@ describe('InfoFooterService', () => {
 			},
 		});
 		const req = httpTestingController.expectOne(apiUrl);
-		req.flush(mockResponse);
+		req.flush(infoServiceResponse);
 
 		expect(req.request.method).toEqual('GET');
 	});
