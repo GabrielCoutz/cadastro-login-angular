@@ -1,5 +1,14 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
+import { FormComponent } from '../form/form.component';
 import { LoginFormComponent } from './login-form.component';
 
 describe('LoginFormComponent', () => {
@@ -8,7 +17,18 @@ describe('LoginFormComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [LoginFormComponent],
+			declarations: [LoginFormComponent, FormComponent],
+			imports: [
+				HttpClientTestingModule,
+				MatFormFieldModule,
+				MatIconModule,
+				ReactiveFormsModule,
+				MatTooltipModule,
+				MatFormFieldModule,
+				MatInputModule,
+				BrowserAnimationsModule,
+				RouterModule.forRoot([]),
+			],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(LoginFormComponent);

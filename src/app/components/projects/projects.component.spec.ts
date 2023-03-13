@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 import { ProjectsComponent } from './projects.component';
 
@@ -9,6 +12,7 @@ describe('ProjectsComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [ProjectsComponent],
+			imports: [MatCardModule, MatBadgeModule, RouterModule.forRoot([])],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ProjectsComponent);

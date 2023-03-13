@@ -1,13 +1,27 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 describe('AppComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [RouterTestingModule],
-			declarations: [AppComponent],
+			imports: [
+				HttpClientTestingModule,
+				MatDialogModule,
+				RouterModule.forRoot([]),
+			],
+			declarations: [
+				AppComponent,
+				HeaderComponent,
+				ModalComponent,
+				FooterComponent,
+			],
 		}).compileComponents();
 	});
 
@@ -21,14 +35,5 @@ describe('AppComponent', () => {
 		const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.componentInstance;
 		expect(app.title).toEqual('desafio');
-	});
-
-	it('should render title', () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		fixture.detectChanges();
-		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector('.content span')?.textContent).toContain(
-			'desafio app is running!',
-		);
 	});
 });
