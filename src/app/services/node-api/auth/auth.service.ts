@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-interface AuthServiceInput {
+export interface AuthServiceInput {
 	email: string;
 	password: string;
 }
 
-interface AuthServiceOutput {
+export interface AuthServiceOutput {
 	id: string;
 	token: string;
 }

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { AuthService } from 'src/app/services/node-api/auth.service';
-import { ErrorApiOutput } from 'src/app/services/node-api/node-api-service';
+import { AuthService } from 'src/app/services/node-api/auth/auth.service';
+import { ErrorApiOutput } from 'src/app/services/node-api/user/node-api-service';
 
 @Component({
 	selector: 'app-login-form',

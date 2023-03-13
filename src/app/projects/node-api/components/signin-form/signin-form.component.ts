@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import {
-	NodeApiService,
 	ErrorApiOutput,
-} from 'src/app/services/node-api/node-api-service';
+	NodeApiService,
+} from 'src/app/services/node-api/user/node-api-service';
 
 type EventTargets = 'loading' | 'deleteAccount';
 

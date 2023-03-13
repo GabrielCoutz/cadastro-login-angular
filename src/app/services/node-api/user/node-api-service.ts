@@ -2,13 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-interface UserRegisterInput {
+export interface UserRegisterInput {
 	name: string;
 	email: string;
 	password: string;
 }
 
-interface UserApiOutput {
+export type UserApiInput = Partial<UserRegisterInput>;
+
+export interface UserApiOutput {
 	id: string;
 	name: string;
 	email: string;
@@ -37,7 +39,7 @@ export class NodeApiService {
 		return this.request.post<UserApiOutput>(`${this.apiUrl}/user`, user);
 	}
 
-	updateUser(userId: string, user: any): Observable<UserApiOutput> {
+	updateUser(userId: string, user: UserApiInput): Observable<UserApiOutput> {
 		const token = localStorage.getItem('token');
 
 		return this.request.patch<UserApiOutput>(

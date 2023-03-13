@@ -1,34 +1,63 @@
 <app-form [title]="'Login'" [formGroup]="loginForm" (ngSubmit)="submit()">
-  <mat-form-field appearance="fill">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="exemplo@gmail.com" formControlName="email" required>
-    <mat-error *ngIf="loginForm.get('email')?.errors">
-      <mat-icon>error_outline</mat-icon>
-      Insira um email válido
-    </mat-error>
-  </mat-form-field>
+	<mat-form-field appearance="fill">
+		<mat-label>Email</mat-label>
+		<input
+			matInput
+			placeholder="exemplo@gmail.com"
+			formControlName="email"
+			required
+		/>
+		<mat-error *ngIf="loginForm.get('email')?.errors">
+			<mat-icon>error_outline</mat-icon>
+			Insira um email válido
+		</mat-error>
+	</mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Senha</mat-label>
-    <input matInput [type]="hidePassword ? 'password' : 'text' " formControlName="password" required>
-    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hidePassword">
-      <mat-icon>{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </button>
-    <mat-error *ngIf="loginForm.get('password')?.value?.length < minPasswordLength" class="requiredParam" #senha>
-      <mat-icon>error_outline</mat-icon>
-      <span>Mínimo de {{minPasswordLength}} caracteres</span>
-    </mat-error>
-  </mat-form-field>
+	<mat-form-field appearance="fill">
+		<mat-label>Senha</mat-label>
+		<input
+			matInput
+			[type]="hidePassword ? 'password' : 'text'"
+			formControlName="password"
+			required
+		/>
+		<button
+			mat-icon-button
+			matSuffix
+			(click)="hidePassword = !hidePassword"
+			[attr.aria-label]="'Hide password'"
+			[attr.aria-pressed]="hidePassword"
+		>
+			<mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+		</button>
+		<mat-error
+			*ngIf="loginForm.get('password')?.value?.length < minPasswordLength"
+			class="requiredParam"
+			#senha
+		>
+			<mat-icon>error_outline</mat-icon>
+			<span>Mínimo de {{ minPasswordLength }} caracteres</span>
+		</mat-error>
+	</mat-form-field>
 
-  <mat-error class="errorMessage" *ngIf="error">
-    <mat-icon>warning</mat-icon>
-    {{error}}
-  </mat-error>
-  <div matTooltip="Preencha todos os campos!" [matTooltipDisabled]="!loginForm.invalid" matTooltipPosition="above">
-    <button mat-flat-button color="primary" [disabled]="loginForm.invalid" style="width: 100%;">Login</button>
-  </div>
-  <div style="text-align: center;">Ou</div>
-  <a mat-stroked-button [routerLink]="['../signin']">Cadastre-se</a>
-
+	<mat-error class="errorMessage" *ngIf="error">
+		<mat-icon>warning</mat-icon>
+		{{ error }}
+	</mat-error>
+	<div
+		matTooltip="Preencha todos os campos!"
+		[matTooltipDisabled]="!loginForm.invalid"
+		matTooltipPosition="above"
+	>
+		<button
+			mat-flat-button
+			color="primary"
+			[disabled]="loginForm.invalid"
+			style="width: 100%"
+		>
+			Login
+		</button>
+	</div>
+	<div style="text-align: center">Ou</div>
+	<a mat-stroked-button [routerLink]="['../signin']">Cadastre-se</a>
 </app-form>
