@@ -10,7 +10,7 @@ import { InfoFooterModel, infoFooterService } from './info-footer.service';
 describe('InfoFooterService', () => {
 	let service: infoFooterService;
 	let httpTestingController: HttpTestingController;
-	let httClient: HttpClient;
+	let httpClient: HttpClient;
 
 	const mockResponse: InfoFooterModel = {
 		subject_matter: 'mock teste',
@@ -29,7 +29,7 @@ describe('InfoFooterService', () => {
 			imports: [HttpClientTestingModule],
 		});
 
-		httClient = TestBed.inject(HttpClient);
+		httpClient = TestBed.inject(HttpClient);
 		httpTestingController = TestBed.inject(HttpTestingController);
 		service = TestBed.inject(infoFooterService);
 	});
