@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { AuthService } from 'src/app/services/node-api/auth.service';
+import { AuthService } from 'src/app/services/node-api/auth/auth.service';
 import {
 	ErrorApiOutput,
 	NodeApiService,
-} from 'src/app/services/node-api/node-api-service';
+} from 'src/app/services/node-api/user/node-api-service';
 
 @Component({
 	selector: 'app-user-form',
