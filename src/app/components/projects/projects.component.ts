@@ -50,7 +50,7 @@ export class ProjectsComponent {
 				'Possui todas operações CRUD nos dados do usuário, com autenticação por meio do JWT. Seu desenvolvimento teve como propósito, conhecer o Node.js, testes com Vitest e obter mais domínio do Typescript. Após seu término, fiz a hospedagem desta API na Vercel, e montei uma documentação de como utilizá-la, disponível no GitHub do projeto.',
 			githubLink: 'https://github.com/GabrielCoutz/node-api',
 			readyToTest: true,
-			testLink: '/node-api',
+			testLink: '/node-api/signin',
 		},
 		{
 			title: 'Sistema FULLSTACK de login',

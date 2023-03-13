@@ -1,6 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiServiceService } from 'src/app/services/api-service.service';
+import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal/modal.service';
+import {
+	ErrorApiOutput,
+	NodeApiService,
+} from 'src/app/services/node-api/user/node-api-service';
+
+type EventTargets = 'loading' | 'deleteAccount';
 
 @Component({
 	selector: 'app-signin-form',
@@ -10,29 +17,41 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 export class SigninFormComponent {
 	constructor(
 		private readonly formBuilder: FormBuilder,
-		private readonly apiService: ApiServiceService,
+		private readonly apiService: NodeApiService,
+		private readonly router: Router,
+		private readonly modalService: ModalService,
 	) {}
 
 	minPasswordLength = 5;
 	minNameLength = 5;
 	hidePassword = true;
+	error = '';
+
+	@Output() modalEvent = new EventEmitter();
 
 	signinForm: FormGroup = this.formBuilder.group({
-		name: [
-			'teste',
-			[Validators.required, Validators.minLength(this.minNameLength)],
-		],
-		email: ['teste@gmail.com', [Validators.required, Validators.email]],
+		name: ['', [Validators.required, Validators.minLength(this.minNameLength)]],
+		email: ['', [Validators.required, Validators.email]],
 		password: [
-			'12345',
+			'',
 			[Validators.required, Validators.minLength(this.minPasswordLength)],
 		],
 	});
 
 	submit() {
+		this.error = '';
+		this.modalService.modalTarget.next('loading');
+
 		this.apiService.registerUser(this.signinForm.value).subscribe({
-			next: (user) => console.log(user),
-			error: (err) => console.log(err),
+			next: () => {
+				this.modalService.modalTarget.next('close');
+				this.modalService.modalTarget.next('createdAccount');
+				this.router.navigate(['projects/node-api/login']);
+			},
+			error: (err: ErrorApiOutput) => {
+				this.modalService.modalTarget.next('close');
+				this.error = err.error.message;
+			},
 		});
 	}
 }

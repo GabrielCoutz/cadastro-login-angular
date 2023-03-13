@@ -1,0 +1,35 @@
+<app-form [title]="'Minha conta'" [formGroup]="userForm" (ngSubmit)="submit()">
+	<mat-form-field appearance="fill">
+		<mat-label>Nome</mat-label>
+		<input matInput formControlName="name" required />
+		<mat-error *ngIf="userForm.get('name')?.errors">
+			<mat-icon>error_outline</mat-icon>
+			O campo não pode ficar vazio
+		</mat-error>
+	</mat-form-field>
+
+	<mat-form-field appearance="fill">
+		<mat-label>Email</mat-label>
+		<input
+			matInput
+			placeholder="exemplo@gmail.com"
+			formControlName="email"
+			required
+		/>
+		<mat-error *ngIf="userForm.get('email')?.errors">
+			<mat-icon>error_outline</mat-icon>
+			Verifique este campo
+		</mat-error>
+	</mat-form-field>
+
+	<mat-error class="errorMessage" *ngIf="error">
+		<mat-icon>warning</mat-icon>
+		{{ error }}
+	</mat-error>
+	<span class="message" *ngIf="message">{{ message }}</span>
+	<button mat-flat-button color="primary">Atualizar dados</button>
+
+	<div class="logOut">
+		<button mat-button color="warn" (click)="logOut()">Sair</button>
+	</div>
+</app-form>
