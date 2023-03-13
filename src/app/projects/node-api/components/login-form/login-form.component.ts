@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 import { AuthService } from 'src/app/services/node-api/auth.service';
 import { ErrorApiOutput } from 'src/app/services/node-api/node-api-service';
 
@@ -14,6 +15,7 @@ export class LoginFormComponent {
 		private readonly formBuilder: FormBuilder,
 		private readonly authService: AuthService,
 		private readonly router: Router,
+		private readonly modalService: ModalService,
 	) {}
 
 	minPasswordLength = 5;
@@ -30,10 +32,11 @@ export class LoginFormComponent {
 
 	submit() {
 		this.error = '';
+		this.modalService.modalTarget.next('loading');
 
 		this.authService.loginUser(this.loginForm.value).subscribe({
 			next: (response) => {
-				console.log(response);
+				this.modalService.modalTarget.next('close');
 
 				localStorage.setItem('token', response.token);
 				localStorage.setItem('userId', response.id);
@@ -41,7 +44,7 @@ export class LoginFormComponent {
 				this.router.navigate(['projects/node-api/account']);
 			},
 			error: (err: ErrorApiOutput) => {
-				console.log(err);
+				this.modalService.modalTarget.next('close');
 
 				this.error = err.error.message;
 			},

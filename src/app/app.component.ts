@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'desafio';
+
+	teste(evento: any) {
+		console.log('recebido');
+
+		console.log(evento);
+	}
 }

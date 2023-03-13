@@ -15,7 +15,7 @@ export interface InfoFooterModel {
 @Injectable({
 	providedIn: 'root',
 })
-export class InfoFooterService {
+export class infoFooterService {
 	private readonly apiUrl =
 		'https://63a59f6af8f3f6d4abfb383d.mockapi.io/api-portfolio/sendEmail';
 

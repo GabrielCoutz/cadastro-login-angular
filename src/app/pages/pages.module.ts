@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -18,7 +19,6 @@ import { ProjectsComponent } from '../components/projects/projects.component';
 import { LoginFormComponent } from '../projects/node-api/components/login-form/login-form.component';
 import { SigninFormComponent } from '../projects/node-api/components/signin-form/signin-form.component';
 import { UserFormComponent } from '../projects/node-api/components/user-form/user-form.component';
-import { NodeApiComponent } from '../projects/node-api/node-api.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './pages-routing';
 @NgModule({
@@ -27,7 +27,6 @@ import { RoutingModule } from './pages-routing';
 		IntroComponent,
 		KnowledgeComponent,
 		ProjectsComponent,
-		NodeApiComponent,
 		SigninFormComponent,
 		UserFormComponent,
 		LoginFormComponent,
@@ -46,6 +45,7 @@ import { RoutingModule } from './pages-routing';
 		CommonModule,
 		RouterModule,
 		RoutingModule,
+		MatDialogModule,
 	],
 })
 export class PagesModule {}

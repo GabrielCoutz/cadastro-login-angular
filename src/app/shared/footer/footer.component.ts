@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+
 import {
+	infoFooterService,
 	InfoFooterModel,
-	InfoFooterService,
-} from 'src/app/services/info-footer/info-footer.service';
+} from '../../services/info-footer/info-footer.service';
 
 @Component({
 	selector: 'app-footer',
@@ -10,7 +11,7 @@ import {
 	styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-	constructor(private readonly infoFooterService: InfoFooterService) {}
+	constructor(private readonly infoFooterService: infoFooterService) {}
 
 	info: InfoFooterModel | undefined;
 
