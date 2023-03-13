@@ -20,13 +20,9 @@
     "import"
   ],
   "rules": {
-    "no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "args": "after-used",
-        "ignoreRestSiblings": false
-      }
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn"
     ],
     "prettier/prettier": [
       "error",
