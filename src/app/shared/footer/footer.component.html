@@ -1,33 +1,47 @@
 <div class="footer-wrapper">
-  <footer class="footer-content container" fxLayout="row wrap" fxLayoutAlign="space-between stretch">
-    <div>
-      <h1>Desafio Frontend</h1>
-    </div>
+	<footer
+		class="footer-content container"
+		fxLayout="row wrap"
+		fxLayoutAlign="space-between stretch"
+	>
+		<div>
+			<h1>Desafio Frontend</h1>
+		</div>
 
-    <div>
-      <h2>Contato</h2>
-      <ul>
-        <li *ngIf="info; else defaultEmail">
-          <a [href]="'mailto:' + info.contact.email + '?subject=' + info.subject_matter + ' &body=' + info.comment" class="email">
-            {{info.contact.email}}
-          </a>
-        </li>
-        <ng-template #defaultEmail>
-          <li>
-            <span>qualquerEmail@email.com</span>
-          </li>
-        </ng-template>
-        <li *ngIf="info; else defaultTel">
-          <span class="tel">
-            {{info.contact.tel}}
-          </span>
-        </li>
-        <ng-template #defaultTel>
-          <li>
-            <span>(00) 00000-0000</span>
-          </li>
-        </ng-template>
-      </ul>
-    </div>
-  </footer>
+		<div>
+			<h2>Contato</h2>
+			<ul>
+				<li *ngIf="info; else defaultEmail">
+					<a
+						[href]="
+							'mailto:' +
+							info.contact.email +
+							'?subject=' +
+							info.subject_matter +
+							' &body=' +
+							info.comment
+						"
+						class="email"
+					>
+						{{ info.contact.email }}
+					</a>
+				</li>
+				<ng-template #defaultEmail>
+					<li>
+						<span>qualquerEmail@email.com</span>
+					</li>
+				</ng-template>
+				<li *ngIf="info; else defaultTel">
+					<span class="tel">
+						{{ info.contact.tel }}
+					</span>
+				</li>
+				<ng-template #defaultTel>
+					<li>
+						<span>(00) 00000-0000</span>
+					</li>
+				</ng-template>
+			</ul>
+		</div>
+	</footer>
 </div>

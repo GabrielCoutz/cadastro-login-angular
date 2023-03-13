@@ -1,31 +1,31 @@
 @use '../../../styles/mixins.scss' as m;
 
 .languages {
-  margin: 15rem auto;
+	margin: 15rem auto;
 
-  .header {
-    margin: 3rem 0;
-    text-align: center;
+	.header {
+		margin: 3rem 0;
+		text-align: center;
 
-    @include m.device(small) {
-      margin: 0;
-      .title {
-        font-size: 1.7rem !important;
-      }
-      .sub-title {
-        font-size: 1.2rem !important;
-      }
-   }
-  }
-  
-  .icons-list {
-    row-gap: 3em;
-  }
+		@include m.device(small) {
+			margin: 0;
+			.title {
+				font-size: 1.7rem !important;
+			}
+			.sub-title {
+				font-size: 1.2rem !important;
+			}
+		}
+	}
 
-  .tabs{
-    row-gap: 3em;
-    background: var(--white);
-    border-radius: var(--border-radius);
-    padding: 24px;
-  }
+	.icons-list {
+		row-gap: 3em;
+	}
+
+	.tabs {
+		row-gap: 3em;
+		background: var(--white);
+		border-radius: var(--border-radius);
+		padding: 24px;
+	}
 }

@@ -1,39 +1,39 @@
 .container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 .title {
-  color: var(--black);
-  font: 400 3rem/1 var(--primary-font) !important;
+	color: var(--black);
+	font: 400 3rem/1 var(--primary-font) !important;
 }
 
 .sub-title {
-  color: var(--primary-color);
-  font: 300 1.3rem/1 var(--primary-font) !important;
+	color: var(--primary-color);
+	font: 300 1.3rem/1 var(--primary-font) !important;
 }
 
-.modal{
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.modal {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing{
-  backdrop-filter: blur(5px);
+.cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing {
+	backdrop-filter: blur(5px);
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--black);
-  border-radius: var(--border-radius);
+	background: var(--black);
+	border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--white);
+	background: var(--white);
 }
