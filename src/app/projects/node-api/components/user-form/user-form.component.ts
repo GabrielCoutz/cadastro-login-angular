@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalService } from 'src/app/services/modal.service';
+import { ActivatedRoute } from '@angular/router';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { NodeApiService } from 'src/app/services/node-api/node-api-service';
 
 @Component({
@@ -13,10 +14,12 @@ export class UserFormComponent {
 		private readonly formBuilder: FormBuilder,
 		private readonly apiService: NodeApiService,
 		private readonly modalService: ModalService,
+		private readonly route: ActivatedRoute,
 	) {}
 
 	error = '';
 	message = '';
+	userId = this.route.snapshot.params['id'];
 
 	userForm: FormGroup = this.formBuilder.group({
 		email: ['', [Validators.nullValidator, Validators.email]],
@@ -24,11 +27,7 @@ export class UserFormComponent {
 	});
 
 	ngOnInit(): void {
-		const userId = localStorage.getItem('userId');
-
-		if (!userId) return;
-
-		this.apiService.getUser(userId).subscribe({
+		this.apiService.getUser(this.userId).subscribe({
 			next: ({ name, email }) => {
 				this.userForm.patchValue({
 					email,
@@ -42,10 +41,9 @@ export class UserFormComponent {
 	submit() {
 		this.error = '';
 		this.message = '';
-		const userId = localStorage.getItem('userId') as string;
 		this.modalService.modalTarget.next('loading');
 
-		this.apiService.updateUser(userId, this.userForm.value).subscribe({
+		this.apiService.updateUser(this.userId, this.userForm.value).subscribe({
 			next: ({ name, email }) => {
 				this.modalService.modalTarget.next('close');
 

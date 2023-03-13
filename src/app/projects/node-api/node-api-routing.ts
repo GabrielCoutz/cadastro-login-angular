@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { AccountCanActiveGuard } from './guards/account-can-active.guard';
 
 const routes: Routes = [
 	{
@@ -18,8 +19,9 @@ const routes: Routes = [
 				component: LoginFormComponent,
 			},
 			{
-				path: 'account',
+				path: 'account/:id',
 				component: UserFormComponent,
+				canActivate: [AccountCanActiveGuard],
 			},
 		],
 	},
