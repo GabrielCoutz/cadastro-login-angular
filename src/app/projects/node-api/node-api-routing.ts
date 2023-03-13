@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from 'src/app/pages/account/account.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+import { SigninComponent } from 'src/app/pages/signin/signin.component';
 
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { SigninFormComponent } from './components/signin-form/signin-form.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
 import { AccountCanActiveGuard } from './guards/account-can-active.guard';
 
 const routes: Routes = [
@@ -12,15 +12,15 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'signin',
-				component: SigninFormComponent,
+				component: SigninComponent,
 			},
 			{
 				path: 'login',
-				component: LoginFormComponent,
+				component: LoginComponent,
 			},
 			{
 				path: 'account/:id',
-				component: UserFormComponent,
+				component: AccountComponent,
 				canActivate: [AccountCanActiveGuard],
 			},
 		],

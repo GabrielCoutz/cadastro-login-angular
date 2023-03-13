@@ -4,38 +4,46 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { UserFormComponent } from 'src/app/projects/node-api/components/user-form/user-form.component';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
-import { FormComponent } from '../form/form.component';
-import { LoginFormComponent } from './login-form.component';
+import { AccountComponent } from './account.component';
 
-describe('LoginFormComponent', () => {
-	let component: LoginFormComponent;
-	let fixture: ComponentFixture<LoginFormComponent>;
+describe('AccountComponent', () => {
+	let component: AccountComponent;
+	let fixture: ComponentFixture<AccountComponent>;
+	let modalService: ModalService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [LoginFormComponent, FormComponent],
+			declarations: [AccountComponent, UserFormComponent],
 			imports: [
 				HttpClientTestingModule,
 				MatFormFieldModule,
 				MatInputModule,
-				MatIconModule,
 				ReactiveFormsModule,
-				MatTooltipModule,
 				BrowserAnimationsModule,
+				MatIconModule,
 				RouterModule.forRoot([]),
 			],
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(LoginFormComponent);
+		fixture = TestBed.createComponent(AccountComponent);
+		modalService = TestBed.inject(ModalService);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should trigger modal', () => {
+		spyOn(modalService.modalTarget, 'next');
+
+		component.openModal('close');
+		expect(modalService.modalTarget.next).toHaveBeenCalledTimes(1);
 	});
 });

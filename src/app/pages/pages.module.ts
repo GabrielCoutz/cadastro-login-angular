@@ -21,7 +21,11 @@ import { LoginFormComponent } from '../projects/node-api/components/login-form/l
 import { SigninFormComponent } from '../projects/node-api/components/signin-form/signin-form.component';
 import { UserFormComponent } from '../projects/node-api/components/user-form/user-form.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './pages-routing';
+import { SigninComponent } from './signin/signin.component';
+import { AccountComponent } from './account/account.component';
+
 @NgModule({
 	declarations: [
 		HomeComponent,
@@ -32,6 +36,9 @@ import { RoutingModule } from './pages-routing';
 		UserFormComponent,
 		LoginFormComponent,
 		FormComponent,
+		LoginComponent,
+  SigninComponent,
+  AccountComponent,
 	],
 	imports: [
 		MatCardModule,
