@@ -1,5 +1,4 @@
-<h1 class="formTitle">Login</h1>
-<form [formGroup]="loginForm" (ngSubmit)="submit()" class="loginForm container" fxLayout="column" fxLayoutGap="16px">
+<app-form [title]="'Login'" [formGroup]="loginForm" (ngSubmit)="submit()">
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput placeholder="exemplo@gmail.com" formControlName="email" required>
@@ -29,4 +28,4 @@
   <div style="text-align: center;">Ou</div>
   <a mat-stroked-button [routerLink]="['../signin']">Cadastre-se</a>
 
-</form>
+</app-form>

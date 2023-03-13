@@ -15,6 +15,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { PagesModule } from './pages/pages.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+
 @NgModule({
 	declarations: [
 		AppComponent,

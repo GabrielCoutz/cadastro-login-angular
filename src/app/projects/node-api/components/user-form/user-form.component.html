@@ -1,5 +1,4 @@
-<h1 class="formTitle">Minha conta</h1>
-<form [formGroup]="userForm" (ngSubmit)="submit()" class="userForm container" fxLayout="column" fxLayoutGap="16px">
+<app-form [title]="'Minha conta'" [formGroup]="userForm" (ngSubmit)="submit()">
   <mat-form-field appearance="fill">
     <mat-label>Nome</mat-label>
     <input matInput formControlName="name" required>
@@ -18,9 +17,10 @@
     </mat-error>
   </mat-form-field>
 
+
   <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
   <span class="message" *ngIf="message">{{message}}</span>
   <button mat-flat-button color="primary">Atualizar dados</button>
 
 
-</form>
+</app-form>
