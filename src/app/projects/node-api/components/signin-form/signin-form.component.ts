@@ -25,18 +25,15 @@ export class SigninFormComponent {
 	minPasswordLength = 5;
 	minNameLength = 5;
 	hidePassword = true;
-	error = '';
+	error = 'email já utilizado';
 
 	@Output() modalEvent = new EventEmitter();
 
 	signinForm: FormGroup = this.formBuilder.group({
-		name: [
-			'teste',
-			[Validators.required, Validators.minLength(this.minNameLength)],
-		],
-		email: ['teste@gmail.com', [Validators.required, Validators.email]],
+		name: ['', [Validators.required, Validators.minLength(this.minNameLength)]],
+		email: ['', [Validators.required, Validators.email]],
 		password: [
-			'12345',
+			'',
 			[Validators.required, Validators.minLength(this.minPasswordLength)],
 		],
 	});

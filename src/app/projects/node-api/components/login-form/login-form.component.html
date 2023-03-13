@@ -21,8 +21,11 @@
     </mat-error>
   </mat-form-field>
 
+  <mat-error class="errorMessage" *ngIf="error">
+    <mat-icon>warning</mat-icon>
+    {{error}}
+  </mat-error>
   <div matTooltip="Preencha todos os campos!" [matTooltipDisabled]="!loginForm.invalid" matTooltipPosition="above">
-    <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
     <button mat-flat-button color="primary" [disabled]="loginForm.invalid" style="width: 100%;">Login</button>
   </div>
   <div style="text-align: center;">Ou</div>

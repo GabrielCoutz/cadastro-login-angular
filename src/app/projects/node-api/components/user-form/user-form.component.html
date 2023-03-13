@@ -18,7 +18,10 @@
   </mat-form-field>
 
 
-  <mat-error class="errorMessage" *ngIf="error">{{error}}</mat-error>
+  <mat-error class="errorMessage" *ngIf="error">
+    <mat-icon>warning</mat-icon>
+    {{error}}
+  </mat-error>
   <span class="message" *ngIf="message">{{message}}</span>
   <button mat-flat-button color="primary">Atualizar dados</button>
 

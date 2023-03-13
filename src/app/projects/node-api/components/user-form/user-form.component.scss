@@ -1,10 +1,15 @@
-.requiredParam {
+.errorMessage {
+  margin: 0.5rem;
+  justify-content: center;
+}
+
+.requiredParam, .errorMessage {
   display: flex;
   align-items: center;
   gap: 0.1rem;
 }
 
-.errorMessage, .message {
+.message {
   text-align: center;
   margin: 0.5rem;
 }

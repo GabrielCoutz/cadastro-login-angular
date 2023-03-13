@@ -23,9 +23,9 @@ export class LoginFormComponent {
 	error = '';
 
 	loginForm: FormGroup = this.formBuilder.group({
-		email: ['teste@gmail.com', [Validators.required, Validators.email]],
+		email: ['', [Validators.required, Validators.email]],
 		password: [
-			'12345',
+			'',
 			[Validators.required, Validators.minLength(this.minPasswordLength)],
 		],
 	});

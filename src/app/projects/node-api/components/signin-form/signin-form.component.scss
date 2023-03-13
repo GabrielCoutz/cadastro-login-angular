@@ -1,9 +1,9 @@
 .errorMessage {
-  text-align: center;
   margin: 0.5rem;
+  justify-content: center;
 }
 
-.requiredParam {
+.requiredParam, .errorMessage {
   display: flex;
   align-items: center;
   gap: 0.1rem;

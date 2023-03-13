@@ -1,4 +1,9 @@
-.requiredParam {
+.errorMessage {
+  margin: 0.5rem;
+  justify-content: center;
+}
+
+.requiredParam, .errorMessage {
   display: flex;
   align-items: center;
   gap: 0.1rem;
@@ -6,9 +11,4 @@
 
 .infoButton{
   text-align: center;
-}
-
-.errorMessage {
-  text-align: center;
-  margin: 0.5rem;
 }
