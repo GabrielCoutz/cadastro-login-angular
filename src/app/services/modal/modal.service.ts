@@ -1,15 +1,41 @@
+import { ComponentType } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CreatedAccountComponent } from 'src/app/components/modal/created-account/created-account.component';
+import { LoadingComponent } from 'src/app/components/modal/loading/loading.component';
 
-export type ModalTriggers = 'loading' | 'close' | 'createdAccount';
+const modalsComponentsList = {
+	loading: LoadingComponent,
+	createdAccount: CreatedAccountComponent,
+	close: null,
+};
+export type ModalTriggers = keyof typeof modalsComponentsList;
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ModalService {
-	readonly modalTarget = new Subject<ModalTriggers>();
+	constructor(private dialog: MatDialog) {}
 
-	openModal() {
-		return this.modalTarget.asObservable();
+	private enterAnimationDuration = '1000';
+	private exitAnimationDuration = '1000';
+
+	openModal(trigger: ModalTriggers) {
+		if (trigger === 'close') return this.dialog.closeAll();
+
+		const modal = modalsComponentsList[trigger];
+		this.openDialog(modal);
+	}
+
+	private openDialog(
+		component: ComponentType<unknown>,
+		config?: MatDialogConfig,
+	) {
+		this.dialog.open(component, {
+			width: '500px',
+			enterAnimationDuration: this.enterAnimationDuration,
+			exitAnimationDuration: this.exitAnimationDuration,
+			...config,
+		});
 	}
 }

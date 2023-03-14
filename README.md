@@ -1,27 +1,30 @@
-# Desafio
+# Desafio Enacom - Portfólio Front end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+## Lista de checagem dos itens requisitados :
 
-## Development server
+:white_check_mark: Utilização de eventos `@Input` e `@Output()`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+:white_check_mark: Emissão de eventos.
 
-## Code scaffolding
+:white_check_mark: Utilização do ciclo de vida.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+:white_check_mark: Aplicar diretivas Angular.
 
-## Build
+:white_check_mark: Utilizar Reactive Forms.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+:white_check_mark: Configurar arquivo de Routing.
 
-## Running unit tests
+:white_check_mark: Responsividade.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+:white_check_mark: Disponibilizar código no GitHub, com padrões Git Flow.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Opcionais
 
-## Further help
+:white_check_mark: Campo de contato no footer, integrado com a [API](https://63a59f6af8f3f6d4abfb383d.mockapi.io/api-portfolio/sendEmail).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+:white_check_mark: [Disponibilizar em aluma plataforma: Vercel](https://desafio-enacom.vercel.app/).
+
+:white_check_mark: Testes unitários com Jasmine E Karma. **80% de Coverage**.

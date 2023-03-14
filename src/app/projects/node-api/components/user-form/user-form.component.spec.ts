@@ -36,4 +36,11 @@ describe('UserFormComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	it('should trigger a modalEvent when submit form', () => {
+		spyOn(component.modalEvent, 'emit');
+		component.submit();
+
+		expect(component.modalEvent.emit).toHaveBeenCalledTimes(1);
+	});
 });

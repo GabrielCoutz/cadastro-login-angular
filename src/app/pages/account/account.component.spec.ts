@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +28,7 @@ describe('AccountComponent', () => {
 				BrowserAnimationsModule,
 				MatIconModule,
 				RouterModule.forRoot([]),
+				MatDialogModule,
 			],
 		}).compileComponents();
 
@@ -41,9 +43,10 @@ describe('AccountComponent', () => {
 	});
 
 	it('should trigger modal', () => {
-		spyOn(modalService.modalTarget, 'next');
+		spyOn(modalService, 'openModal');
 
 		component.openModal('close');
-		expect(modalService.modalTarget.next).toHaveBeenCalledTimes(1);
+
+		expect(modalService.openModal).toHaveBeenCalledTimes(1);
 	});
 });
