@@ -5,8 +5,18 @@ import { CreatedAccountComponent } from 'src/app/components/modal/created-accoun
 import { LoadingComponent } from 'src/app/components/modal/loading/loading.component';
 
 const modalsComponentsList = {
-	loading: LoadingComponent,
-	createdAccount: CreatedAccountComponent,
+	loading: {
+		component: LoadingComponent,
+		config: {
+			disableClose: true,
+		},
+	},
+	createdAccount: {
+		component: CreatedAccountComponent,
+		config: {
+			disableClose: true,
+		},
+	},
 	close: null,
 };
 export type ModalTriggers = keyof typeof modalsComponentsList;
@@ -23,8 +33,8 @@ export class ModalService {
 	openModal(trigger: ModalTriggers) {
 		if (trigger === 'close') return this.dialog.closeAll();
 
-		const modal = modalsComponentsList[trigger];
-		this.openDialog(modal);
+		const { component, config } = modalsComponentsList[trigger];
+		this.openDialog(component, config);
 	}
 
 	private openDialog(
