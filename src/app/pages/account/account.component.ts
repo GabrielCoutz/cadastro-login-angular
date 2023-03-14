@@ -13,6 +13,6 @@ export class AccountComponent {
 	constructor(private readonly modalService: ModalService) {}
 
 	openModal(event: ModalTriggers) {
-		this.modalService.modalTarget.next(event);
+		this.modalService.openModal(event);
 	}
 }

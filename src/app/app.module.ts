@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreatedAccountComponent } from './components/modal/created-account/created-account.component';
 import { LoadingComponent } from './components/modal/loading/loading.component';
-import { ModalComponent } from './components/modal/modal.component';
 import { PagesModule } from './pages/pages.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -25,7 +24,6 @@ import { HeaderComponent } from './shared/header/header.component';
 		HeaderComponent,
 		FooterComponent,
 		LoadingComponent,
-		ModalComponent,
 		CreatedAccountComponent,
 	],
 	imports: [
