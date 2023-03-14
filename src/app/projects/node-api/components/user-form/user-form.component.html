@@ -1,7 +1,7 @@
 <app-form [title]="'Minha conta'" [formGroup]="userForm" (ngSubmit)="submit()">
 	<mat-form-field appearance="fill">
 		<mat-label>Nome</mat-label>
-		<input matInput formControlName="name" required />
+		<input matInput formControlName="name" required type="text" />
 		<mat-error *ngIf="userForm.get('name')?.errors">
 			<mat-icon>error_outline</mat-icon>
 			O campo não pode ficar vazio
@@ -15,6 +15,7 @@
 			placeholder="exemplo@gmail.com"
 			formControlName="email"
 			required
+			type="email"
 		/>
 		<mat-error *ngIf="userForm.get('email')?.errors">
 			<mat-icon>error_outline</mat-icon>

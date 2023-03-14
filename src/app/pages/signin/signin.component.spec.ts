@@ -1,23 +1,26 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { SigninFormComponent } from 'src/app/projects/node-api/components/signin-form/signin-form.component';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
-import { FormComponent } from '../form/form.component';
-import { SigninFormComponent } from './signin-form.component';
+import { SigninComponent } from './signin.component';
 
-describe('SigninFormComponent', () => {
-	let component: SigninFormComponent;
-	let fixture: ComponentFixture<SigninFormComponent>;
+describe('SigninComponent', () => {
+	let component: SigninComponent;
+	let fixture: ComponentFixture<SigninComponent>;
+	let modalService: ModalService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [SigninFormComponent, FormComponent],
+			declarations: [SigninComponent, SigninFormComponent],
 			imports: [
 				HttpClientTestingModule,
 				MatFormFieldModule,
@@ -27,10 +30,12 @@ describe('SigninFormComponent', () => {
 				MatTooltipModule,
 				RouterModule.forRoot([]),
 				BrowserAnimationsModule,
+				MatDialogModule,
 			],
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(SigninFormComponent);
+		fixture = TestBed.createComponent(SigninComponent);
+		modalService = TestBed.inject(ModalService);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
@@ -39,10 +44,11 @@ describe('SigninFormComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should trigger a modalEvent when submit form', () => {
-		spyOn(component.modalEvent, 'emit');
-		component.submit();
+	it('should trigger modal', () => {
+		spyOn(modalService, 'openModal');
 
-		expect(component.modalEvent.emit).toHaveBeenCalledTimes(1);
+		component.openModal('close');
+
+		expect(modalService.openModal).toHaveBeenCalledTimes(1);
 	});
 });

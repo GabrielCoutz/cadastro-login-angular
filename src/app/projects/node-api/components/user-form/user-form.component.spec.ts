@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ModalService } from 'src/app/services/modal/modal.service';
 
 import { FormComponent } from '../form/form.component';
 import { UserFormComponent } from './user-form.component';
@@ -14,7 +13,6 @@ import { UserFormComponent } from './user-form.component';
 describe('UserFormComponent', () => {
 	let component: UserFormComponent;
 	let fixture: ComponentFixture<UserFormComponent>;
-	let modalService: ModalService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -31,7 +29,6 @@ describe('UserFormComponent', () => {
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(UserFormComponent);
-		modalService = TestBed.inject(ModalService);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
@@ -40,12 +37,10 @@ describe('UserFormComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should trigger a target to modalService when form submit', () => {
-		spyOn(modalService.modalTarget, 'next');
-
+	it('should trigger a modalEvent when submit form', () => {
+		spyOn(component.modalEvent, 'emit');
 		component.submit();
-		fixture.detectChanges();
 
-		expect(modalService.modalTarget.next).toHaveBeenCalledTimes(1);
+		expect(component.modalEvent.emit).toHaveBeenCalledTimes(1);
 	});
 });

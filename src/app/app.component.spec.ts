@@ -4,7 +4,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ModalComponent } from './components/modal/modal.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 
@@ -16,12 +15,7 @@ describe('AppComponent', () => {
 				MatDialogModule,
 				RouterModule.forRoot([]),
 			],
-			declarations: [
-				AppComponent,
-				HeaderComponent,
-				ModalComponent,
-				FooterComponent,
-			],
+			declarations: [AppComponent, HeaderComponent, FooterComponent],
 		}).compileComponents();
 	});
 

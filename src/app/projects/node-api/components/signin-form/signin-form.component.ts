@@ -1,13 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import { ModalTriggers } from 'src/app/services/modal/modal.service';
 import {
 	ErrorApiOutput,
 	NodeApiService,
 } from 'src/app/services/node-api/user/node-api-service';
-
-type EventTargets = 'loading' | 'deleteAccount';
 
 @Component({
 	selector: 'app-signin-form',
@@ -19,16 +17,13 @@ export class SigninFormComponent {
 		private readonly formBuilder: FormBuilder,
 		private readonly apiService: NodeApiService,
 		private readonly router: Router,
-		private readonly modalService: ModalService,
 	) {}
 
+	@Output() modalEvent = new EventEmitter<ModalTriggers>();
 	minPasswordLength = 5;
 	minNameLength = 5;
 	hidePassword = true;
 	error = '';
-
-	@Output() modalEvent = new EventEmitter();
-
 	signinForm: FormGroup = this.formBuilder.group({
 		name: ['', [Validators.required, Validators.minLength(this.minNameLength)]],
 		email: ['', [Validators.required, Validators.email]],
@@ -40,16 +35,17 @@ export class SigninFormComponent {
 
 	submit() {
 		this.error = '';
-		this.modalService.modalTarget.next('loading');
+		this.modalEvent.emit('loading');
 
 		this.apiService.registerUser(this.signinForm.value).subscribe({
 			next: () => {
-				this.modalService.modalTarget.next('close');
-				this.modalService.modalTarget.next('createdAccount');
+				this.modalEvent.emit('close');
+				this.modalEvent.emit('createdAccount');
 				this.router.navigate(['projects/node-api/login']);
 			},
+
 			error: (err: ErrorApiOutput) => {
-				this.modalService.modalTarget.next('close');
+				this.modalEvent.emit('close');
 				this.error = err.error.message;
 			},
 		});

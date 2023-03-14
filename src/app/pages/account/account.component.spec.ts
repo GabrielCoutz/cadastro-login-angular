@@ -1,36 +1,39 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { UserFormComponent } from 'src/app/projects/node-api/components/user-form/user-form.component';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
-import { FormComponent } from '../form/form.component';
-import { SigninFormComponent } from './signin-form.component';
+import { AccountComponent } from './account.component';
 
-describe('SigninFormComponent', () => {
-	let component: SigninFormComponent;
-	let fixture: ComponentFixture<SigninFormComponent>;
+describe('AccountComponent', () => {
+	let component: AccountComponent;
+	let fixture: ComponentFixture<AccountComponent>;
+	let modalService: ModalService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [SigninFormComponent, FormComponent],
+			declarations: [AccountComponent, UserFormComponent],
 			imports: [
 				HttpClientTestingModule,
 				MatFormFieldModule,
 				MatInputModule,
-				MatIconModule,
 				ReactiveFormsModule,
-				MatTooltipModule,
-				RouterModule.forRoot([]),
 				BrowserAnimationsModule,
+				MatIconModule,
+				RouterModule.forRoot([]),
+				MatDialogModule,
 			],
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(SigninFormComponent);
+		fixture = TestBed.createComponent(AccountComponent);
+		modalService = TestBed.inject(ModalService);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
@@ -39,10 +42,11 @@ describe('SigninFormComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should trigger a modalEvent when submit form', () => {
-		spyOn(component.modalEvent, 'emit');
-		component.submit();
+	it('should trigger modal', () => {
+		spyOn(modalService, 'openModal');
 
-		expect(component.modalEvent.emit).toHaveBeenCalledTimes(1);
+		component.openModal('close');
+
+		expect(modalService.openModal).toHaveBeenCalledTimes(1);
 	});
 });
