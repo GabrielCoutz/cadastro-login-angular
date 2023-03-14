@@ -45,7 +45,7 @@ describe('AccountComponent', () => {
 	it('should trigger modal', () => {
 		spyOn(modalService, 'openModal');
 
-		component.openModal('loading');
+		component.handleModalEvent('loading');
 
 		expect(modalService.openModal).toHaveBeenCalledTimes(1);
 	});

@@ -22,7 +22,7 @@ export class UserFormComponent {
 		private readonly router: Router,
 	) {}
 
-	@Output() modalEvent = new EventEmitter<ModalTriggers | 'close'>();
+	@Output() modalEvent = new EventEmitter<ModalTriggers>();
 	error = '';
 	message = '';
 	userId = this.activatedRoute.snapshot.params['id'];

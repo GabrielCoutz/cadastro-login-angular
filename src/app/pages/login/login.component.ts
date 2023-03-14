@@ -12,7 +12,7 @@ import {
 export class LoginComponent {
 	constructor(private readonly modalService: ModalService) {}
 
-	handleModalEvent(event: ModalTriggers | 'close') {
+	handleModalEvent(event: ModalTriggers) {
 		if (event === 'close') this.modalService.closeModal();
 		else this.modalService.openModal(event);
 	}

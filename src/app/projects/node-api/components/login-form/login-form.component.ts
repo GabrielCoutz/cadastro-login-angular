@@ -20,7 +20,7 @@ export class LoginFormComponent {
 		private readonly router: Router,
 	) {}
 
-	@Output() modalEvent = new EventEmitter<ModalTriggers | 'close'>();
+	@Output() modalEvent = new EventEmitter<ModalTriggers>();
 	minPasswordLength = 5;
 	hidePassword = true;
 	error = '';
