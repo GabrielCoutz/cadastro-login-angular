@@ -19,8 +19,8 @@ export class AccountCanActiveGuard implements CanActivate {
 		| Promise<boolean | UrlTree>
 		| boolean
 		| UrlTree {
-		const token = localStorage.getItem('token');
+		const tokenExists = localStorage.getItem('token');
 
-		return !!token;
+		return !!tokenExists;
 	}
 }

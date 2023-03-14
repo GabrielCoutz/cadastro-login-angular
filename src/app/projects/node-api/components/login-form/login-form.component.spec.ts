@@ -8,7 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { AuthService } from 'src/app/services/node-api/auth/auth.service';
 
 import { FormComponent } from '../form/form.component';
 import { LoginFormComponent } from './login-form.component';
@@ -16,7 +15,6 @@ import { LoginFormComponent } from './login-form.component';
 describe('LoginFormComponent', () => {
 	let component: LoginFormComponent;
 	let fixture: ComponentFixture<LoginFormComponent>;
-	let authService: AuthService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -35,7 +33,6 @@ describe('LoginFormComponent', () => {
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(LoginFormComponent);
-		authService = TestBed.inject(AuthService);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

@@ -19,7 +19,7 @@ export class SigninFormComponent {
 		private readonly router: Router,
 	) {}
 
-	@Output() modalEvent = new EventEmitter<ModalTriggers | 'close'>();
+	@Output() modalEvent = new EventEmitter<ModalTriggers>();
 	minPasswordLength = 5;
 	minNameLength = 5;
 	hidePassword = true;

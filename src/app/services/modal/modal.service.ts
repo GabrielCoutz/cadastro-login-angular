@@ -16,7 +16,7 @@ const modalsComponentsList = {
 		config: {},
 	},
 };
-export type ModalTriggers = keyof typeof modalsComponentsList;
+export type ModalTriggers = keyof typeof modalsComponentsList | 'close';
 
 @Injectable({
 	providedIn: 'root',
@@ -24,10 +24,7 @@ export type ModalTriggers = keyof typeof modalsComponentsList;
 export class ModalService {
 	constructor(private dialog: MatDialog) {}
 
-	private enterAnimationDuration = '1000';
-	private exitAnimationDuration = '1000';
-
-	openModal(trigger: ModalTriggers) {
+	openModal(trigger: Exclude<ModalTriggers, 'close'>) {
 		const { component, config } = modalsComponentsList[trigger];
 		this.openDialog(component, config);
 	}
@@ -40,10 +37,13 @@ export class ModalService {
 		component: ComponentType<unknown>,
 		config?: MatDialogConfig,
 	) {
+		const enterAnimationDuration = '1000';
+		const exitAnimationDuration = '1000';
+
 		this.dialog.open(component, {
 			width: '500px',
-			enterAnimationDuration: this.enterAnimationDuration,
-			exitAnimationDuration: this.exitAnimationDuration,
+			enterAnimationDuration,
+			exitAnimationDuration,
 			...config,
 		});
 	}
