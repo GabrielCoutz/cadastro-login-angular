@@ -22,7 +22,7 @@ export class UserFormComponent {
 		private readonly router: Router,
 	) {}
 
-	@Output() modalEvent = new EventEmitter<ModalTriggers>();
+	@Output() modalEvent = new EventEmitter<ModalTriggers | 'close'>();
 	error = '';
 	message = '';
 	userId = this.activatedRoute.snapshot.params['id'];
@@ -49,7 +49,7 @@ export class UserFormComponent {
 	submit() {
 		this.error = '';
 		this.message = '';
-		this.modalEvent.emit('close');
+		this.modalEvent.emit('loading');
 
 		this.apiService.updateUser(this.userId, this.userForm.value).subscribe({
 			next: ({ name, email }) => {

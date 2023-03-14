@@ -12,7 +12,8 @@ import {
 export class LoginComponent {
 	constructor(private readonly modalService: ModalService) {}
 
-	openModal(event: ModalTriggers) {
-		this.modalService.openModal(event);
+	handleModalEvent(event: ModalTriggers | 'close') {
+		if (event === 'close') this.modalService.closeModal();
+		else this.modalService.openModal(event);
 	}
 }
