@@ -20,7 +20,7 @@ describe('ModalService', () => {
 	it('should close modal', () => {
 		spyOn(service, 'openModal');
 
-		service.openModal('close');
+		service.openModal('loading');
 
 		expect(service.openModal).toHaveBeenCalledTimes(1);
 	});

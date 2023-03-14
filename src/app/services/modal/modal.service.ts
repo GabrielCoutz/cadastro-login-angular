@@ -13,11 +13,8 @@ const modalsComponentsList = {
 	},
 	createdAccount: {
 		component: CreatedAccountComponent,
-		config: {
-			disableClose: true,
-		},
+		config: {},
 	},
-	close: null,
 };
 export type ModalTriggers = keyof typeof modalsComponentsList;
 
@@ -31,10 +28,12 @@ export class ModalService {
 	private exitAnimationDuration = '1000';
 
 	openModal(trigger: ModalTriggers) {
-		if (trigger === 'close') return this.dialog.closeAll();
-
 		const { component, config } = modalsComponentsList[trigger];
 		this.openDialog(component, config);
+	}
+
+	closeModal() {
+		this.dialog.closeAll();
 	}
 
 	private openDialog(
