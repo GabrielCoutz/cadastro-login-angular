@@ -13,25 +13,16 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 
-import { IntroComponent } from '../components/intro/intro.component';
-import { KnowledgeComponent } from '../components/knowledge/knowledge.component';
-import { ProjectsComponent } from '../components/projects/projects.component';
 import { FormComponent } from '../projects/node-api/components/form/form.component';
 import { LoginFormComponent } from '../projects/node-api/components/login-form/login-form.component';
 import { SigninFormComponent } from '../projects/node-api/components/signin-form/signin-form.component';
 import { UserFormComponent } from '../projects/node-api/components/user-form/user-form.component';
 import { AccountComponent } from './account/account.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RoutingModule } from './pages-routing';
 import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
 	declarations: [
-		HomeComponent,
-		IntroComponent,
-		KnowledgeComponent,
-		ProjectsComponent,
 		SigninFormComponent,
 		UserFormComponent,
 		LoginFormComponent,
@@ -53,7 +44,6 @@ import { SigninComponent } from './signin/signin.component';
 		ReactiveFormsModule,
 		CommonModule,
 		RouterModule,
-		RoutingModule,
 		MatDialogModule,
 	],
 })
