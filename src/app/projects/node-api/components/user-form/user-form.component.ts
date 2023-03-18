@@ -70,6 +70,6 @@ export class UserFormComponent {
 
 	logOut() {
 		this.authService.logout();
-		this.router.navigate(['projects/node-api/login']);
+		this.router.navigate(['login']);
 	}
 }

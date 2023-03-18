@@ -40,7 +40,7 @@ export class LoginFormComponent {
 			next: (response: AuthServiceOutput) => {
 				this.modalEvent.emit('close');
 				localStorage.setItem('token', response.token);
-				this.router.navigate(['projects/node-api/account', response.id]);
+				this.router.navigate(['account', response.id]);
 			},
 
 			error: (err: ErrorApiOutput) => {

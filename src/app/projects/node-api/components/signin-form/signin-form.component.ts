@@ -41,7 +41,7 @@ export class SigninFormComponent {
 			next: () => {
 				this.modalEvent.emit('close');
 				this.modalEvent.emit('createdAccount');
-				this.router.navigate(['projects/node-api/login']);
+				this.router.navigate(['login']);
 			},
 
 			error: (err: ErrorApiOutput) => {
